@@ -1,0 +1,21 @@
+<div class="background">
+  <div class="basic-container">
+    <mat-list role="list">
+      <mat-card *ngFor="let question of preguntatekQuestions; let i = index">
+        <mat-card-header>
+          <mat-card-title>
+            {{question.text}}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-actions align="end">
+          <button mat-icon-button (click)="openDeleteDialog(i)">
+            <mat-icon>cancel</mat-icon>
+          </button>
+          <button mat-icon-button (click)="openEditDialog(i)">
+            <mat-icon>check</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-list>
+  </div>
+</div>

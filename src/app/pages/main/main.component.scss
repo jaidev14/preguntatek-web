@@ -1,0 +1,75 @@
+p {
+    color: white;
+    font-size: 80px;
+    margin: auto;
+    margin-top: 60px;
+}
+
+img {
+    margin: auto;
+}
+
+.centered-container {
+    margin: 20px 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+.link-button {
+    color: #e4c1f9;
+    width: 300px;
+    height: 300px;
+    margin: 30px;
+    margin-top: 100px;
+    text-align: center;
+    position: relative;
+}
+
+.link-button img {
+    border-radius: 50%;
+    border: 10px solid;
+    background-color: rgb(131, 61, 163);
+    margin: 20px auto;
+    width: 150px;
+    height: 150px;
+}
+
+.link-button:hover {
+    color: white;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+    text-decoration: none;
+}
+
+.rotate:hover {
+    width: 80px;
+    height: 80px;
+    animation: rotation infinite 5s linear;
+}
+
+.background {
+    background: url('/assets/backgrounds/preguntatek-bg.gif') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

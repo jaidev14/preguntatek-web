@@ -1,0 +1,24 @@
+// /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Silver;
+    src: url('assets/fonts/Silver.ttf');
+}
+
+body {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    margin: 0rem !important;
+    background-color: black;
+    font-family: Silver, sans-serif !important;
+}
+
+.basic-container {
+    padding: 0 50px;
+    overflow: hidden;
+}
+
+html,
+body {
+    height: 100%;
+}

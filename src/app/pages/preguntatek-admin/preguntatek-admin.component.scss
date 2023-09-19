@@ -1,0 +1,34 @@
+
+
+mat-list {
+    height: auto;
+}
+
+mat-card {
+    color: white;
+    padding: 5px;
+    margin: 15px 20%;
+}
+
+mat-card-actions {
+    align-self: "stretch";
+    display: "flex";
+    justify-content: "flex-end";
+    align-items: "flex-start";
+}
+
+.background {
+    background: url('/assets/backgrounds/preguntatek-bg.gif') no-repeat center center fixed;
+    overflow: hidden;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.card-container {
+    margin: 20px 40px;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
