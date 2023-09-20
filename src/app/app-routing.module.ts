@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './services/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -8,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuard],
     loadChildren: () => import('./pages/preguntatek-admin/preguntatek-admin.module').then(m => m.PreguntatekAdminModule)
   },
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
   },
   {
     path: '**',
+    pathMatch: 'full',
     redirectTo: 'preguntatek'
   },
 ];

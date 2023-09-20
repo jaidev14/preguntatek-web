@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>YOU SHALL NOT PASS</h1>
+<div mat-dialog-content>
+  <p>Email</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="loginUserData.email">
+  </mat-form-field>
+  <p>Password</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="loginUserData.password">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="loginUserData" cdkFocusInitial>Pasar</button>
+</div>

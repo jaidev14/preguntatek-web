@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { PreguntatekRoutingModule } from './preguntatek-routing.module';
 import { Preguntatek } from './preguntatek.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { Preguntatek } from './preguntatek.component';
     PreguntatekRoutingModule,
     MatCardModule,
     MatGridListModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   declarations: [Preguntatek]
 })

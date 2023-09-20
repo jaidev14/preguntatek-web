@@ -25,25 +25,30 @@ export class PreguntatekAdmin implements OnInit {
   }
 
   retrieveQuestions() {
+    var count = 0;
     this.firestoreService.getAllCommunityQuestions().subscribe((preguntatekQuestionsSnapshot) => {
       this.preguntatekQuestions = [];
       preguntatekQuestionsSnapshot.forEach((preguntatekQuestionData: any) => {
         const questionData = preguntatekQuestionData.payload.doc.data();
-        console.log(questionData);
+        count++;
         this.preguntatekQuestions.push({
           id: questionData.Id,
           text: questionData.Value
         });
-      })
+      });
+      console.log(count);
+      console.log(this.preguntatekQuestions);
+
     });
   }
 
   public deleteQuestion(documentId: string) {
-    this.firestoreService.deleteCommunityQuestion(documentId).then(() => {
-      console.log('Documento eliminado!');
-    }, (error) => {
-      console.error(error);
-    });
+    console.log(documentId);
+    // this.firestoreService.deleteCommunityQuestion().then(() => {
+    //   console.log('Documento eliminado!');
+    // }, (error) => {
+    //   console.error(error);
+    // });
   }
 
   public sendQuestion(data: any, documentId: string) {
@@ -74,7 +79,8 @@ export class PreguntatekAdmin implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log(result);
+      this.deleteQuestion(result);
     });
   }
 }
