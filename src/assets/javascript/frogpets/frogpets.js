@@ -84,8 +84,8 @@ var snd_princess;
 var snd_ralph;
 
 //frog window width/height
-var num_frogWidth = 270;
-var num_frogHeight = 270;
+var num_frogWidth = 400;
+var num_frogHeight = 400;
 
 //the actual frog divs
 var frog01; // = Oliver
@@ -96,15 +96,15 @@ var frog03; // = Princess
 //only allow 3 frogs to ever exist
 //these are checked against
 var bool_death_frog01 = true;
-var bool_death_frog02 = false;
-var bool_death_frog03 = false;
+var bool_death_frog02 = true;
+var bool_death_frog03 = true;
 
 //names for each frog (changes on every new window)
 var str_name_frog01;
 var str_name_frog02;
 var str_name_frog03;
 
-var int_frog01_move = 2; //interval for Oliver movement
+var int_frog01_move = 100; //interval for Oliver movement
 var int_frog02_move = 0; //interval for Ralph movement
 var int_frog03_move = 0; //interval for Princess movement
 
@@ -116,9 +116,9 @@ var num_frog02_targY = 0;
 var num_frog03_targX = 0;
 var num_frog03_targY = 0;
 //movement countdowns (canceling)
-var num_frog01_cnt = 0;
-var num_frog02_cnt = 0;
-var num_frog03_cnt = 0;
+var num_frog01_cnt = 15;
+var num_frog02_cnt = 5;
+var num_frog03_cnt = 10;
 //current comment type for each frog (see arr_states)
 var str_frog01_curr_comment = "default";
 var str_frog02_curr_comment = "default";

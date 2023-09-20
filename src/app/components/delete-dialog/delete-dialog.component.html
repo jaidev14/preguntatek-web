@@ -6,7 +6,7 @@
       </p>
   </div>
   <div mat-dialog-actions class="action-buttons">
-    <button mat-button mat-dialog-close>No</button>
-    <button mat-button mat-dialog-close cdkFocusInitial>Si</button>
+    <button mat-button mat-dialog-close [mat-dialog-close]="false">No</button>
+    <button mat-button mat-dialog-close [mat-dialog-close]="true" cdkFocusInitial>Si</button>
   </div>
 </div>

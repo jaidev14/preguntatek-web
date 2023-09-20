@@ -7,11 +7,26 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class AuthService {
+  loggedIn = new BehaviorSubject<boolean>(false);
+  loggedIn$ = this.loggedIn.asObservable();
   public user: User = new User(null);
 
   constructor(
     public auth: AngularFireAuth // Inject Firebase auth service
-  ) {}
+  ) {
+    this.auth.onAuthStateChanged((user) => {
+      if (user) {
+        this.loggedIn.next(true);
+      } else {
+        // not logged in
+        this.loggedIn.next(false);
+      } 
+    });
+  }
+
+  public isLoggedIn(): boolean {
+    return !!this.auth.currentUser;
+  }
 
   // Sign in with email/password
   signIn(email: string, password: string) {

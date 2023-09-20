@@ -1,11 +1,14 @@
-<h1 mat-dialog-title>Hi {{data.name}}</h1>
-<div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field>
-    <input matInput [(ngModel)]="data.question">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button [mat-dialog-close]="data.question" cdkFocusInitial>Enviar</button>
+<div class="dialog-container">
+  <h1 mat-dialog-title class="title">Hola socio</h1>
+  <div mat-dialog-content>
+    <p class="prompt">Corrige la ortografia pls</p>
+    <mat-form-field>
+      <textarea class="textarea-box" matInput [(ngModel)]="data.question">
+      </textarea>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions class="action-buttons">
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button mat-button cdkFocusInitial [mat-dialog-close]="data.question">Enviar</button>
+  </div>
 </div>

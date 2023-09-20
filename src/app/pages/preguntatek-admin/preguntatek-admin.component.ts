@@ -25,38 +25,18 @@ export class PreguntatekAdmin implements OnInit {
   }
 
   retrieveQuestions() {
-    var count = 0;
     this.firestoreService.getAllCommunityQuestions().subscribe((preguntatekQuestionsSnapshot) => {
       this.preguntatekQuestions = [];
       preguntatekQuestionsSnapshot.forEach((preguntatekQuestionData: any) => {
         const questionData = preguntatekQuestionData.payload.doc.data();
-        count++;
         this.preguntatekQuestions.push({
-          id: questionData.Id,
+          id: preguntatekQuestionData.payload.doc.id,
           text: questionData.Value
         });
       });
-      console.log(count);
       console.log(this.preguntatekQuestions);
 
     });
-  }
-
-  public deleteQuestion(documentId: string) {
-    console.log(documentId);
-    // this.firestoreService.deleteCommunityQuestion().then(() => {
-    //   console.log('Documento eliminado!');
-    // }, (error) => {
-    //   console.error(error);
-    // });
-  }
-
-  public sendQuestion(data: any, documentId: string) {
-      this.firestoreService.createOfficialQuestion(data).then(() => {
-        console.log('Documento creado exitósamente!');
-      }, (error) => {
-        console.error(error);
-      });
   }
 
   openEditDialog(questionIndex: number) {
@@ -67,9 +47,22 @@ export class PreguntatekAdmin implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      if (result !== undefined && result !== '') {
+        this.sendQuestion(result, this.preguntatekQuestions[questionIndex].id);
+      }
     });
   }
+
+  public sendQuestion(data: any, documentId: string) {
+      this.firestoreService.createOfficialQuestion({ Value: data }).then(() => {
+        this.retrieveQuestions();
+        this.deleteQuestion(documentId);
+      }, (error) => {
+        console.error(error);
+      });
+  }
+
+  
 
   openDeleteDialog(questionIndex: number) {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
@@ -79,8 +72,18 @@ export class PreguntatekAdmin implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-      this.deleteQuestion(result);
+      if (result === true) {
+        this.deleteQuestion(this.preguntatekQuestions[questionIndex].id);
+      }
     });
   }
+
+  public deleteQuestion(documentId: string) {
+    this.firestoreService.deleteCommunityQuestion(documentId).then(() => {
+        this.retrieveQuestions()
+    }, (error) => {
+      console.error(error);
+    });
+  }
+
 }

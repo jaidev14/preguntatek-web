@@ -8,7 +8,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/preguntatek/preguntatek.module').then(m => m.PreguntatekModule)
   },
   {
-    path: 'admin',
+    path: 'preguntatek/admin',
     canActivate: [AuthGuard],
     loadChildren: () => import('./pages/preguntatek-admin/preguntatek-admin.module').then(m => m.PreguntatekAdminModule)
   },

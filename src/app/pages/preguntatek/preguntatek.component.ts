@@ -23,11 +23,11 @@ export class Preguntatek {
   }
 
   openAdmin() {
-    // init_frogs();
-    if (this.authService.user.uid == undefined) {
+    init_frogs();
+    if (!this.authService.loggedIn.getValue()) {
       this.openLoginDialog();
     } else {
-      this.router.navigate(['admin']);
+      this.router.navigate(['preguntatek/admin']);
     }
   }
 
@@ -36,7 +36,7 @@ export class Preguntatek {
 
     dialogRef.afterClosed().subscribe(result => {
       this.authService.signIn(result.email, result.password).then(() => {
-        this.router.navigate(['admin']);
+        this.router.navigate(['preguntatek/admin']);
       });
       console.log('The login dialog was closed');
     });

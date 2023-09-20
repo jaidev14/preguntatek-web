@@ -1,4 +1,4 @@
 export interface PreguntatekQuestion {
-    id: number;
+    id: string;
     text: string;
 }

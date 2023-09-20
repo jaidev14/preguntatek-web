@@ -14,10 +14,10 @@ export class AuthGuard  {
     ) { }
 
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      const authenticated = this.authService.user.uid !== undefined;
-      if (authenticated) {
+      if (this.authService.loggedIn.getValue()) {
         return true;
       } else {
+        this.router.navigate(['preguntatek']);
         return false;
       }
     }
